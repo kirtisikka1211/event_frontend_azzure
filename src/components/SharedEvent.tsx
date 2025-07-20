@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAuth } from './src/contexts/AuthContext';
-import { apiClient } from './src/lib/api';
+import { useAuth } from '../contexts/AuthContext';
+import { apiClient } from '../lib/api';
 import toast from 'react-hot-toast';
 import { Calendar, MapPin, Clock, Users, Tag } from 'lucide-react';
-import Card from './src/components/UI/Card';
+import Card from './UI/Card';
 
 interface Event {
   id: string;
