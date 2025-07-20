@@ -26,7 +26,7 @@ const SharedEvent: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
-
+  console.log('shareId', shareId);
   useEffect(() => {
     const fetchEvent = async () => {
       try {
