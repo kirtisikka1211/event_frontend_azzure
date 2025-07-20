@@ -8,6 +8,7 @@
     "client": "vite",
     "server": "nodemon server/index.js",
     "build": "vite build",
+    "postbuild": "cp staticwebapp.config.json dist/",
     "lint": "eslint .",
     "preview": "vite preview"
   },
