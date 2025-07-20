@@ -36,6 +36,7 @@ const SharedEvent: React.FC = () => {
         }
 
         const response = await apiClient.getEventByShareId(shareId);
+        console.log('Fetched event:', response);
         setEvent(response);
       } catch (err) {
         console.error('Error fetching event:', err);
