@@ -19,7 +19,7 @@ import {
   Mail
 } from 'lucide-react';
 import Card from '../UI/Card';
-import { apiClient } from '../../lib/api';
+import { apiClient, API_BASE_URL } from '../../lib/api';
 import toast from 'react-hot-toast';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
@@ -415,7 +415,7 @@ const data = await apiClient.getEventRegistrations(event.id);
                           </div>
                           <div className="bg-white p-4 rounded-lg shadow-sm">
                             <img
-                              src={event.bank_details.qr_code_file_id ? `/api/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
+                              src={event.bank_details.qr_code_file_id ? `${API_BASE_URL}/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
                               alt="Payment QR Code"
                               className="w-full h-auto"
                             />

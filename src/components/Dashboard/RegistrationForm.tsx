@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
-import { apiClient } from '../../lib/api';
+import { apiClient, API_BASE_URL } from '../../lib/api';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import Card from '../UI/Card';
@@ -163,7 +163,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
                     <div className="mt-3">
                       <p className="text-sm text-yellow-800 font-medium mb-2">Scan QR Code to Pay:</p>
                       <img
-                        src={event.bank_details.qr_code_file_id ? `/api/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
+                        src={event.bank_details.qr_code_file_id ? `${API_BASE_URL}/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
                         alt="Payment QR Code"
                         className="h-48 w-48 object-contain bg-white p-2 rounded-lg"
                       />

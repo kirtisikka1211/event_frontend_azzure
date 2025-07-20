@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
-import { apiClient } from '../../lib/api';
+import { apiClient, API_BASE_URL } from '../../lib/api';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import Card from '../UI/Card';
@@ -101,7 +101,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onClose, onSave, isEdit })
         bank_details: {
           ...event.bank_details,
           qr_code_file: null,
-          qr_code_preview: event.bank_details?.qr_code_file_id ? `/api/files/${event.bank_details.qr_code_file_id}` : null
+          qr_code_preview: event.bank_details?.qr_code_file_id ? `${API_BASE_URL}/files/${event.bank_details.qr_code_file_id}` : null
         },
         requires_checkin: event.requires_checkin !== false,
         registration_fields: event.registration_fields || [],
@@ -396,7 +396,7 @@ const EventForm: React.FC<EventFormProps> = ({ event, onClose, onSave, isEdit })
               />
               {formData.bank_details.qr_code_preview && (
                 <img
-                  src={formData.bank_details.qr_code_preview}
+                  src={formData.bank_details.qr_code_preview && formData.bank_details.qr_code_preview.startsWith('/api/files/') ? `${API_BASE_URL}/files/${formData.bank_details.qr_code_preview.split('/').pop()}` : formData.bank_details.qr_code_preview}
                   alt="QR Code Preview"
                   className="mt-2 h-32 w-32 object-contain"
                 />

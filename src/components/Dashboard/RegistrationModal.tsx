@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { X, Calendar, MapPin, Clock, Users, QrCode, CreditCard, Upload, Check } from 'lucide-react';
-import { apiClient } from '../../lib/api';
+import { apiClient, API_BASE_URL } from '../../lib/api';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import Card from '../UI/Card';
@@ -310,7 +310,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({
                                     <span className="text-sm font-medium text-gray-900">Scan QR Code to Pay</span>
                                     <div className="bg-white p-3 rounded-xl shadow-sm">
                                       <img
-                                        src={event.bank_details.qr_code_file_id ? `/api/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
+                                        src={event.bank_details.qr_code_file_id ? `${API_BASE_URL}/files/${event.bank_details.qr_code_file_id}` : event.bank_details.qr_code_url}
                                         alt="Payment QR Code"
                                         className="h-48 w-48 object-contain"
                                       />
