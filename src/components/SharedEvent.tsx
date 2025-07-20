@@ -17,6 +17,7 @@ interface Event {
   max_attendees: number;
   current_attendees: number;
   registration_fee: number;
+  shareId: string;
 }
 
 const SharedEvent: React.FC = () => {
