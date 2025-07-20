@@ -34,19 +34,14 @@ const Auth: React.FC = () => {
         await signIn(formData.email, formData.password);
       }
       
-      // Check if there's a redirectEventId in sessionStorage (from shared event)
+      // Check if there's a redirectEventId or redirectShareId in sessionStorage (from shared event)
       const redirectEventId = sessionStorage.getItem('redirectEventId');
       const redirectShareId = sessionStorage.getItem('redirectShareId');
       
-      if (redirectShareId) {
+      if (redirectEventId) {
         // Clear the stored IDs
         sessionStorage.removeItem('redirectEventId');
         sessionStorage.removeItem('redirectShareId');
-        // Navigate back to the shared event page
-        navigate(`/share/${redirectShareId}`);
-      } else if (redirectEventId) {
-        // Clear the stored event ID
-        sessionStorage.removeItem('redirectEventId');
         // Navigate to browse events with the selected event ID
         navigate('/dashboard/browse-events', { state: { selectedEventId: redirectEventId } });
       } else {
