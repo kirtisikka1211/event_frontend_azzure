@@ -11,7 +11,7 @@ import BrowseEvents from './components/Dashboard/BrowseEvents';
 import UserDashboard from './pages/Dashboard';
 import Layout from './components/Layout/Layout';
 import CreateEvent from './components/Dashboard/CreateEvent';
-import SharedEvent from './components/SharedEvent';
+import SharedEvent from '../SharedEvent';
 import SendMessages from './components/Dashboard/SendMessages';
 
 interface ProtectedRouteProps {
